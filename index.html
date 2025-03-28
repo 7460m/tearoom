@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>明空茶坊 - 即将开业</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            text-align: center;
+            background-color: #f8f5f0;
+            color: #5a4738;
+            margin: 0;
+            padding: 20px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-image: url('茶叶背景.jpg'); /* 可选：添加背景图片 */
+            background-size: cover;
+            background-position: center;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #3a2c1d;
+        }
+        .logo {
+            max-width: 150px;
+            margin-bottom: 20px;
+        }
+        .countdown {
+            font-size: 42px;
+            font-weight: bold;
+            margin: 20px 0;
+            color: #c8782e;
+        }
+        .message {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .details {
+            font-size: 16px;
+            color: #7a6b5a;
+            margin-top: 30px;
+        }
+        .social {
+            margin-top: 20px;
+        }
+        .social img {
+            width: 30px;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 如果你有logo可以在这里添加 -->
+        <!-- <img src="logo.png" alt="明空茶坊" class="logo"> -->
+        
+        <h1>明空茶坊 · 即将盛大开业</h1>
+        
+        <div class="message">
+            我们的茶饮之旅即将启程，邀您共赴一场茶香盛宴
+        </div>
+        
+        <div class="countdown" id="countdown">
+            正在计算...
+        </div>
+        
+        <div class="details">
+            开业日期：2025年5月20日<br>
+            地址：[你的店铺地址]<br>
+            营业时间：10:00 - 22:00
+        </div>
+        
+        <div class="message">
+            开业当天，凭此页面可享受店内任意茶饮8折优惠
+        </div>
+        
+        <!-- 如果有社交媒体账号可以添加 -->
+        <div class="social">
+            <!-- 这里可以放社交媒体图标 -->
+        </div>
+    </div>
+
+    <script>
+        // 设置目标日期为2025年5月20日
+        const countDownDate = new Date("May 20, 2025 10:00:00").getTime();
+        
+        // 每秒更新倒计时
+        const x = setInterval(function() {
+            // 获取当前时间
+            const now = new Date().getTime();
+            
+            // 计算剩余时间
+            const distance = countDownDate - now;
+            
+            // 计算天、小时、分钟和秒数
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            // 显示倒计时
+            document.getElementById("countdown").innerHTML = 
+                days + "天 " + hours + "小时 " + minutes + "分钟 " + seconds + "秒";
+            
+            // 如果倒计时结束，显示消息
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "我们已经开业啦！";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
